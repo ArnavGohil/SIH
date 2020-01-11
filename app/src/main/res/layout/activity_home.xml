@@ -20,8 +20,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView1"
-        android:layout_width="391dp"
-        android:layout_height="262dp"
+        android:layout_width="390dp"
+        android:layout_height="260dp"
         android:elevation="4dp"
         app:cardBackgroundColor="#ffff"
         app:cardCornerRadius="10dp"
@@ -68,21 +68,36 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-            <ScrollView
+            <HorizontalScrollView
                 android:id="@+id/scroll"
-                android:layout_width="396dp"
-                android:layout_height="166dp"
-                android:orientation="horizontal"
+                android:layout_width="390dp"
+                android:layout_height="165dp"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
-            </ScrollView>
+                <LinearLayout
+                    android:layout_width="390dp"
+                    android:layout_height="165dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="390dp"
+                        android:layout_height="165dp"
+                        android:src="@drawable/bathroom" />
+
+                    <ImageView
+                        android:layout_width="390dp"
+                        android:layout_height="165dp"
+                        android:src="@drawable/map"/>
+                </LinearLayout>
+
+            </HorizontalScrollView>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="391dp"
@@ -133,17 +148,34 @@
 
             <ScrollView
                 android:id="@+id/scroll1"
-                android:layout_width="396dp"
-                android:layout_height="166dp"
-                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="165dp"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="165dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="165dp"
+                        android:src="@drawable/lounge" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="165dp"
+                        android:src="@drawable/map"/>
+                </LinearLayout>
 
             </ScrollView>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
