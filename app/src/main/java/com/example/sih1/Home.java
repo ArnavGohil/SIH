@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -34,6 +35,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class Home extends AppCompatActivity {
     TextView txt;
     ProgressBar progressBar;
+    ListView listView ;
     static String URL ;
     public static HttpURLConnection urlConnection = null;
     public static InputStream inputStream = null;
@@ -48,10 +50,13 @@ public class Home extends AppCompatActivity {
 
         txt = findViewById(R.id.ff);
         progressBar = findViewById(R.id.pb);
+        listView = findViewById(R.id.list_item);
         String appName = "test@4";
         URL = "https://thicchaindb.lunchb0ne.me/api/v1/assets?search=" + appName ;
 
         AsyncTask<Void, Void, Void> execute = new Utlis().execute();
+
+
 
     }
 
@@ -132,7 +137,7 @@ public class Home extends AppCompatActivity {
                     int type = data.getInt("type");
                     long dt = data.getLong("time");
                     Date date = new Date(dt * 1000);
-                    String DATE_FORMAT_9 = "h:mm a dd MMMM yyyy" ;
+                    String DATE_FORMAT_9 = "HH:mm , dd MMMM yyyy" ;
                     SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_9);
                     String dte = dateFormat.format(date);
 
@@ -142,9 +147,10 @@ public class Home extends AppCompatActivity {
 
                 CardAdapter flavorAdapter = new CardAdapter(Home.this, cards);
 
-                // Get a reference to the ListView, and attach the adapter to the listView.
-                ListView listView = (ListView) findViewById(R.id.list_item);
                 listView.setAdapter(flavorAdapter);
+
+                Animation animation = animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide);
+                listView.startAnimation(animation);
 
 
 
